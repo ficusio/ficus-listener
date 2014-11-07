@@ -1,6 +1,9 @@
 doctype html
 head
-  meta(name="viewport" content="width=device-width")
+
+  title Page Title
+
+  meta(name="viewport" content="width=device-width, initial-scale=1")
 
   link(rel="stylesheet" href="stylesheets/app.css")
 
@@ -9,6 +12,34 @@ head
 
   script.
     require('scripts/initialize');
+    $(document).on("mobileinit", function(){
+        $.mobile.defaultPageTransition = 'flip';
+    });
+
+
+
+  style(type="text/css").
+    .info {
+      width: 100%;
+      text-align: center;
+    }
+    .w {
+      height: 100vh;
+      background: rgb(94, 255, 188);
+    }
+
 
 body
   h1 Hello, homeless!
+
+
+
+#first(data-role="page")
+  .ui-content.w(role="main")
+    p.info Send something...
+    a.ui-btn#foo(href="#") Send "foo"
+    a.ui-btn(href="#second")
+
+.second(data-role="page")
+  div.ui-content(role="main")
+    p I'm the second page. What's up?

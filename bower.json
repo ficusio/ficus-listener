@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "jquery": "2.1.1",
-    "jquery-mobile-bower": "*"
+    "jquery-mobile-bower": "*",
+    "sockjs-client": "~0.3.4"
   }
 }
