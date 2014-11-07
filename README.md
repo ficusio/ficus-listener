@@ -33,9 +33,10 @@
 
 
 ## Usage
-
+```bash
 $ npm install
 $ bower install
 $ node server.js
 $ brunch w -s
+```
 
