@@ -30,3 +30,12 @@
   }
 ]
 ```
+
+
+## Usage
+
+$ npm install
+$ bower install
+$ node server.js
+$ brunch w -s
+
