@@ -8,7 +8,7 @@
   - sendFeedback(msg)
 
 ### POLL
-```JSON
+```js
 {
   id: string,
   desciption: string,
@@ -22,7 +22,7 @@
 ```
 
 ### Poll_state
-```JSON
+```js
 [
   {
     count: number,
