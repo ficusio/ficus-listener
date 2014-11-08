@@ -53,6 +53,18 @@ class APIImpl
     }, {
       name: 'Option 2'
       color: '#0000ff'
+    }, {
+      name: 'Option 3'
+      color: '#0f000f'
+    }, {
+      name: 'Option 4'
+      color: '#ff00ff'
+    }, {
+      name: 'Option 5'
+      color: '#F000ff'
+    }, {
+      name: 'Option 6'
+      color: '#00f0ff'
     }]
   }, {
     id: '2'

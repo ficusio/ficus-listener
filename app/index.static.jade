@@ -18,7 +18,14 @@ head
 
 
 body
-  section#first(data-role="page")
+
+  section#hello(data-role="page")
+    .ui-content(role="main")
+      p
+        a(href="https://vk.com/wall-60684683_477?reply=478") Сообщество Code Hipsters
+      img(src="images/hipsta.jpg")
+
+  section#controll(data-role="page")
     div.ui-header(data-role="header")
       h1
         | #47hours
@@ -48,12 +55,9 @@ body
 
 
 
-  section#second(data-role="page")
+  section#poll(data-role="page")
     .ui-content(role="main")
-      .answer хуй
-      .answer пизда
-      .answer джигурда
-      .answer крокодил
+      p.empty Пока нет опросов :(
       .fill
 
 
