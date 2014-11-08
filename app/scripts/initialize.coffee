@@ -7,31 +7,33 @@ window.countChar = (val) ->
   $('.counter .number').text(len)
 
 
+API = require './api'
+api = new API '/api'
 
-# sock = ->
+api.onInitialState = (initialState) ->
+  console.log 'got initial state: ' + JSON.stringify(initialState, null, '  ')
 
-#   sockjs_url = 'http://localhost:9999/echo'
-#   sockjs = new SockJS(sockjs_url)
-#   sockjs.onopen = ->
-#     console.log( 'connected ' + sockjs.protocol )
+api.onStateChanged = (state) ->
+  console.log 'presentation state changed: ' + state
 
-#   sockjs.onmessage = (e) ->
-#     message = e.data
+api.onPollStarted = (poll) ->
+  console.log 'poll started: ' + JSON.stringify(poll, null, '  ')
 
-#     console.log( 'recive message ' + message )
+api.onPollEnded = ->
+  console.log 'poll ended'
 
-#     if (message == 'flip')
-#       if (location.hash == '#first')
-#         $.mobile.navigate('#second')
-#       else
-#         $.mobile.navigate('#first')
+# Methods:
+#
+# api.voteUp()
+# api.voteDown()
+# api.sendFeedback('message')
+#
+# Presentation state:
+#
+# API.PresentationState.NOT_STARTED
+# API.PresentationState.ACTIVE
+# API.PresentationState.ENDED
 
-#   sockjs.onclose   = ->
-#     console.log( 'closed' )
-
-
-#   $('#foo').on "tap", (e) ->
-#     sockjs.send('foo')
 
 fakeui = ->
   $(".answer").click ->
@@ -42,7 +44,7 @@ fakeui = ->
     $("#second .fill").css("background-color", color)
     $("#second .fill").fadeIn(700)
 
-  window.setButtons()
+  # window.setButtons()
 
 
 
