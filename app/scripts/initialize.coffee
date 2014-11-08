@@ -1,31 +1,15 @@
-window.countChar = (val) ->
-  len = $(val).val().length
+window.countChar = () ->
+  len = $(".question").val().length
   if (len >= 140)
-    $(val).val($(val).val().substring(0, 140))
+    $(".question").val($(".question").val().substring(0, 140))
   if len>= 140
     len = 140
   $('.counter .number').text(len)
 
-# {
-#   "id": "2",
-#   "desciption": "Test poll 2",
-#   "options": [
-#     {
-#       "name": "Option 1",
-#       "color": "#ff0000"
-#     },
-#     {
-#       "name": "Option 2",
-#       "color": "#00ff00"
-#     },
-#     {
-#       "name": "Option 3",
-#       "color": "#0000ff"
-#     }
-#   ]
-# }
 
 setButtons = (poll) ->
+  $(".fill").hide()
+  $(".answer").remove()
   count = poll.options.length
   $("p.empty").hide()
 
@@ -33,7 +17,7 @@ setButtons = (poll) ->
     $("#poll .ui-content").append("<div class='answer' data-index='#{i}' data-color='#{option.color}' style='color: #{option.color}; border-color: #{option.color}; '>#{option.name}</div>")
 
   screenH = $("#poll").height()
-  padding = ((screenH - (44*count) )- 36)/count
+  padding = ((screenH - (38*count) )- 36)/count
 
   $(".answer").css(
     "padding-top": "#{padding/2}px"
@@ -42,6 +26,10 @@ setButtons = (poll) ->
     api.answer($(this).data("index"))
     $("#poll .fill").css("background-color", $(this).data("color"))
     $("#poll .fill").fadeIn(700)
+
+animation = (el) ->
+  $(el).css("opacity","0.4")
+  $(el).animate {"opacity": "1"}, 1000
 
 
 API = require './api'
@@ -52,7 +40,6 @@ api.onInitialState = (initialState) ->
   if initialState.state is "active"
     if initialState.poll
       setButtons(initialState.poll)
-
       $.mobile.navigate("#poll")
     else
       $.mobile.navigate("#controll")
@@ -66,37 +53,33 @@ api.onStateChanged = (state) ->
 
 api.onPollStarted = (poll) ->
   console.log 'poll started: ' + JSON.stringify(poll, null, '  ')
+  setButtons(poll)
+  $.mobile.navigate("#poll")
 
 api.onPollEnded = ->
   console.log 'poll ended'
-
-# Methods:
-#
-# api.voteUp()
-# api.voteDown()
-# api.sendFeedback('message')
-#
-# Presentation state:
-#
-# API.PresentationState.NOT_STARTED
-# API.PresentationState.ACTIVE
-# API.PresentationState.ENDED
-
-
-fakeui = ->
-  $(".answer").click ->
-    letters = '0123456789ABCDEF'.split('')
-    color = '#'
-    for i in "123456"
-      color += letters[Math.floor(Math.random() * 16)]
-    $("#second .fill").css("background-color", color)
-    $("#second .fill").fadeIn(700)
-
-  # window.setButtons()
-
+  $.mobile.navigate("#controll")
 
 
 $ ->
+
+  $(".faster").click ->
+    api.voteUp()
+    animation(this)
+
+  $(".slower").click ->
+    api.voteDown()
+    animation(this)
+
+  $(".send").click ->
+    animation(this)
+    text = $(".question").val()
+    unless text is ""
+      $(".question").val("")
+      window.countChar()
+      api.sendFeedback(text)
+
+
 
 
   $.mobile.defaultPageTransition = 'flip'

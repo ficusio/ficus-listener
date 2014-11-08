@@ -78,6 +78,11 @@ section[data-role=page]
       color #3faae2
       text-transform: uppercase
       fixsize()
+      img
+        width: 30px
+        position: relative
+        left: -10px
+        top: 6px
   .ui-content
     p.label
       color #575757
@@ -97,6 +102,8 @@ section[data-role=page]
       float right
       margin-top 16px
       cursor pointer
+      padding 5px 10px
+      margin: 1px
 
     .answer
       border 1px solid #f15
@@ -115,7 +122,7 @@ section[data-role=page]
       height 100%
       width 100%
       z-index 500
-      pointer-events none
+      // pointer-events none
 
 
 
@@ -130,12 +137,13 @@ section[data-role=page]
       color: #7f7f7f
     .button
       display: inline-block
-      margin: 5px 20px 20px 20px
+      margin: 0px 15px 15px 15px
+      padding: 5px
       font-weight: 400
       cursor pointer
       &.slower
         color #3498db
-        padding: 0 12px
+        padding: 5px 17px
         img
           width: 60px
       &.faster
@@ -172,6 +180,20 @@ section[data-role=page]
   p
     fixsize()
 
+#poll
+  .fill
+    p
+      color: #fff
+      bold(30px)
+      text-align center
+      position: relative
+      top: 45%
+
+
+.send, .faster, .slower
+  border-width: 0px !important
+  border-style: solid
+  border-radius: 10px
 
 
 
