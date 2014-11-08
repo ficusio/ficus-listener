@@ -34,15 +34,14 @@ setButtons = (poll) ->
 
   screenH = $("#poll").height()
   padding = ((screenH - (44*count) )- 36)/count
-  console.log padding
 
   $(".answer").css(
     "padding-top": "#{padding/2}px"
     "padding-bottom": "#{padding/2}px"
   ).click ->
-
     api.answer($(this).data("index"))
-
+    $("#poll .fill").css("background-color", $(this).data("color"))
+    $("#poll .fill").fadeIn(700)
 
 
 API = require './api'
