@@ -41,6 +41,7 @@ fixsize()
 body
   normal()
   background #fff
+  min-height 490px
 
   .container
     fixsize()
@@ -54,7 +55,7 @@ body
     border-radius: 0 !important
     -webkit-border-radius: 0 !important
     font-size: 0.9em !important
-    height: 97px !important
+    height: 140px !important
     // fixsize()
     box-sizing: border-box !important
     max-width: 700px !important
@@ -66,20 +67,33 @@ body
     textarea
       left: -18px !important
       box-sizing: content-box !important
-
+      height: 77px !important
+      
+    section[data-role=page]
+      .ui-header
+        padding: 1px 0
+      .ui-footer
+        height 165px
+        .controll_tip
+          normal(14px, 20px)
+          margin 12px 0
+          
+        .button
+          margin: 0px 15px 15px 15px
 
 section[data-role=page]
   background #fff
   .ui-header
     background #fafafa
-    border-color: #979797
-    padding: 10px 0
+    border-color: #DFDFDF
+    padding: 16px 0
     h1
       color #3faae2
       text-transform: uppercase
+      margin-bottom 5px
       fixsize()
       img
-        width: 30px
+        width: 28px
         position: relative
         left: -10px
         top: 6px
@@ -87,6 +101,8 @@ section[data-role=page]
     p.label
       color #575757
       fixsize()
+      margin-top 25px
+      margin-bottom: 12px
       img
         width 30px
         margin 0px 10px 0px 0px
@@ -97,6 +113,8 @@ section[data-role=page]
       display inline-block
     p.counter
       color #666
+      padding 5px 10px;
+      margin 1px;
     .send
       color #2ecc71
       float right
@@ -125,19 +143,23 @@ section[data-role=page]
       // pointer-events none
 
 
+  .ui-content
+    padding: 0 1em 
 
   .ui-footer
     background #fff
     border none
     text-align center
-    height 180px
+    height 200px
     .controll_tip
+      // font-size 24px
       text-align center
-      normal(14px, 20px)
+      margin 25px 0
+      normal(23px, 20px)
       color: #7f7f7f
     .button
       display: inline-block
-      margin: 0px 15px 15px 15px
+      margin: 0px 57px 15px 47px
       padding: 5px
       font-weight: 400
       cursor pointer
