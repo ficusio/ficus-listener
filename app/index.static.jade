@@ -10,36 +10,53 @@ head
   script(src="javascripts/vendor.js")
   script(src="javascripts/app.js")
 
+  meta(charset="utf-8")
+
   script.
     require('scripts/initialize');
-    $(document).on("mobileinit", function(){
-        $.mobile.defaultPageTransition = 'flip';
-    });
 
-
-
-  style(type="text/css").
-    .info {
-      width: 100%;
-      text-align: center;
-    }
-    .w {
-      height: 100vh;
-      background: rgb(94, 255, 188);
-    }
 
 
 body
-  h1 Hello, homeless!
+  section#first(data-role="page")
+    div.ui-header(data-role="header")
+      h1
+        | #47hours
+
+    .ui-content(role="main")
+      p.label
+        img(src="images/question.png")
+        | Задайте вопрос лектору
+      textarea.question(name="question" placeholder="Почему ..." onkeyup="countChar(this)")
+      .container
+        p.counter
+          span.number 0
+          span /140
+        .send Отправить
+
+    .ui-footer(data-role="footer")
+      p.controll_tip Управляй ходом презентации
+      .button.slower
+        img(src="images/slower.png")
+        br
+        | непонятно
+      .button.faster
+        img(src="images/faster.png")
+        br
+        | давай дальше
 
 
 
-#first(data-role="page")
-  .ui-content.w(role="main")
-    p.info Send something...
-    a.ui-btn#foo(href="#") Send "foo"
-    a.ui-btn(href="#second")
 
-.second(data-role="page")
-  div.ui-content(role="main")
-    p I'm the second page. What's up?
+  section#second(data-role="page")
+    .ui-content(role="main")
+      .answer хуй
+      .answer пизда
+      .answer джигурда
+      .answer крокодил
+      .fill
+
+
+
+
+

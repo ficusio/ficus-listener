@@ -7,6 +7,9 @@
 
     stylesheets:
       joinTo: 'stylesheets/app.css'
+      order:
+        before: ['bower_compontnets/jquery-mobile-bower']
+        after: ['app/styles/index.styl']
 
     templates:
       joinTo: 'javascripts/app.js'
