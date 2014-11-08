@@ -21,6 +21,9 @@ module.exports = class API
   voteDown: ->
     console.log 'API.voteDown'
 
+  answer: (index) ->
+    console.log 'API.answer: ' + index
+
   sendFeedback: (msg) ->
     console.log "API.sendFeedback: '#{ msg }'"
 
