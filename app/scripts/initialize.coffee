@@ -76,15 +76,15 @@ api.onPollEnded = ->
 
 $ ->
 
-  $(".faster").click ->
+  $('.faster').on "tap", (e) ->
     api.voteUp()
     animation(this)
 
-  $(".slower").click ->
+  $('.slower').on "tap", (e) ->
     api.voteDown()
     animation(this)
 
-  $(".send").click ->
+  $('.send').on "tap", (e) ->
     animation(this)
     text = $(".question").val()
     unless text is ""
