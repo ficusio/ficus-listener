@@ -1,4 +1,5 @@
-window.API = class API
+utils = require './cookie-utils'
+module.exports = class API
 
   @PresentationState:
     NOT_STARTED: 'not_started'

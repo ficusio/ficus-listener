@@ -32,7 +32,7 @@ animation = (el) ->
   $(el).animate {"opacity": "1"}, 1000
 
 
-API = require './api'
+API = require './server-api'
 api = new API '/api'
 
 api.onInitialState = (initialState) ->
