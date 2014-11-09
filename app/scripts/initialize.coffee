@@ -8,8 +8,14 @@ window.countChar = () ->
 
 
 setButtons = (poll) ->
+
   $(".fill").hide()
   $(".answer").remove()
+
+  console.log(poll)
+  if poll is false
+    $.mobile.navigate("#controll")
+    return
   count = poll.options.length
   $("p.empty").hide()
 
@@ -34,11 +40,12 @@ animation = (el) ->
 
 API = require './server-api'
 api = new API '/api'
+# api = new API 'http://codehipsters.com/api'
 
 api.onInitialState = (initialState) ->
   console.log 'got initial state: ' + JSON.stringify(initialState, null, '  ')
   if initialState.state is "active"
-    if initialState.poll
+    if initialState.poll and initialState.poll.options
       setButtons(initialState.poll)
       $.mobile.navigate("#poll")
     else
@@ -50,8 +57,14 @@ api.onStateChanged = (state) ->
   console.log 'presentation state changed: ' + state
   if state is "active"
     $.mobile.navigate("#controll")
+  if state is "ended"
+    $.mobile.navigate("#hello")
 
 api.onPollStarted = (poll) ->
+  if(poll is false)
+    $.mobile.navigate("#controll")
+    return
+
   console.log 'poll started: ' + JSON.stringify(poll, null, '  ')
   setButtons(poll)
   $.mobile.navigate("#poll")
