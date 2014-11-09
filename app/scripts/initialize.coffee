@@ -14,7 +14,7 @@ setButtons = (poll) ->
   $("p.empty").hide()
 
   for option, i in poll.options
-    $("#poll .ui-content").append("<div class='answer' data-index='#{i}' data-color='#{option.color}' style='color: #{option.color}; border-color: #{option.color}; '>#{option.name}</div>")
+    $("#poll .ui-content").append("<div class='answer' data-index='#{i}' data-color='#{option.color}' style='color: #{option.color}; border-color: #{option.color}; '>#{option.label}</div>")
 
   screenH = $("#poll").height()
   padding = ((screenH - (38*count) )- 36)/count
