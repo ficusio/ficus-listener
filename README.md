@@ -1,36 +1,29 @@
-## Listener API
-  - ~> initalState : {state, poll: {POLL}}
-  - ~> pollStarted : {poll}
-  - ~> pollEnded
-  - ~> stateChanged
-  - voteUp()
-  - voteDown()
-  - sendFeedback(msg)
+## Listener protocol
 
-### POLL
 ```js
-{
-  id: string,
-  desciption: string,
+~> inital_state: {state: PresentationState, poll: Poll?, pollVote: int? }
+~> presentation_state: PresentationState
+~> poll: Poll | false
+
+<~ init: {clientId: String, presentationId: String}
+<~ vote_up
+<~ vote_down
+<~ question: String
+<~ poll_vote: int
+
+PresentationState: 'not_started' | 'active' | 'ended'
+
+Poll: {
+  id: String,
+  title: String,
   options: [
     {
-      name: string,
-      color: string
+      label: String,
+      color: '#rrggbb'
     }
   ]
 }
 ```
-
-### Poll_state
-```js
-[
-  {
-    count: number,
-    weight: nubmber
-  }
-]
-```
-
 
 ## Usage
 ```bash
