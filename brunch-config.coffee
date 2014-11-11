@@ -2,17 +2,17 @@
   files:
     javascripts:
       joinTo:
-        'javascripts/app.js': /^app/
-        'javascripts/vendor.js': /^(?!app)/
+        'javascripts/app-listener.js': /^app/
+        'javascripts/vendor-listener.js': /^(?!app)/
 
     stylesheets:
-      joinTo: 'stylesheets/app.css'
+      joinTo: 'stylesheets/app-listener.css'
       order:
         before: ['bower_compontnets/jquery-mobile-bower']
         after: ['app/styles/index.styl']
 
     templates:
-      joinTo: 'javascripts/app.js'
+      joinTo: 'javascripts/app-listener.js'
 
   plugins:
     jaded:
