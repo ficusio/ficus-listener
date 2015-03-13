@@ -1,0 +1,234 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:600,400,300&subset=latin,cyrillic')
+
+font-url(file)
+  return '../assets/fonts/' + file
+
+webfont(family, file, hack-chrome-windows = false, weight = 'normal', style = 'normal')
+  @font-face
+    font-family family
+    src url(font-url(file + '.eot'))
+    src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
+        url(font-url(file + '.woff')) format('woff'),
+        url(font-url(file + '.ttf')) format('truetype'),
+        url(font-url(file + '.svg#'+ family)) format('svg')
+    font-weight weight
+    font-style style
+  if hack-chrome-windows
+    @media screen and (-webkit-min-device-pixel-ratio:0)
+      @font-face
+        font-family family
+        src url(font-url(file + '.svg#'+ family)) format('svg')
+
+
+webfont('Proxima', 'ProximaNova-Reg', true, 'normal', 'normal')
+webfont('Proxima', 'ProximaNova-Bold', true, 700, 'normal')
+webfont('Proxima', 'ProximaNova-Light', true, 300, 'normal')
+
+normal(font-size = 18px, line-height = 24px)
+  font: 400 font-size/line-height 'Proxima', 'Open Sans', sans-serif !important
+  -webkit-font-smoothing: antialiased
+
+bold(font-size = 18px, line-height = 24px)
+  font: 700 font-size/line-height 'Proxima', 'Open Sans', sans-serif !important
+  -webkit-font-smoothing: antialiased
+
+fixsize()
+  max-width: 700px !important
+  margin-left: auto !important
+  margin-right: auto !important
+
+
+body
+  normal()
+  background #fff
+  min-height 490px
+
+  .container
+    fixsize()
+
+  textarea
+    resize: none !important
+    -webkit-box-shadow: none !important
+    box-shadow: none !important
+    padding: 18px !important
+    position: relative !important
+    border-radius: 0 !important
+    -webkit-border-radius: 0 !important
+    font-size: 0.9em !important
+    height: 140px !important
+    // fixsize()
+    box-sizing: border-box !important
+    max-width: 700px !important
+    margin-left: auto !important
+    margin-right: auto !important
+
+@media only screen and (max-width: 700px)
+  body
+    textarea
+      left: -18px !important
+      box-sizing: content-box !important
+      height: 77px !important
+
+    section[data-role=page]
+      .ui-header
+        padding: 1px 0
+      .ui-footer
+        height 165px
+        .controll_tip
+          normal(14px, 20px)
+          margin 12px 0
+
+        .button
+          margin: 0px 15px 15px 15px
+
+section[data-role=page]
+  background #fff
+  .ui-header
+    background #fafafa
+    border-color: #DFDFDF
+    padding: 16px 0
+    h1
+      color #3faae2
+      text-transform: uppercase
+      margin-bottom 5px
+      fixsize()
+      img
+        width: 28px
+        position: relative
+        left: -10px
+        top: 6px
+  .ui-content
+    p.label
+      color #575757
+      fixsize()
+      margin-top 25px
+      margin-bottom: 12px
+      img
+        width 30px
+        margin 0px 10px 0px 0px
+        position relative
+        top 5px
+
+    p.counter, .send
+      display inline-block
+    p.counter
+      color #666
+      padding 5px 10px;
+      margin 1px;
+    .send
+      color #2ecc71
+      float right
+      margin-top 16px
+      cursor pointer
+      padding 5px 10px
+      margin: 1px
+
+    .answer
+      border 1px solid #f15
+      border-radius 10px
+      text-align center
+      padding 20px 0
+      margin 10px 0
+      cursor pointer
+
+    .fill
+      background #000
+      display none
+      position absolute
+      top 0
+      left 0
+      height 100%
+      width 100%
+      z-index 500
+      // pointer-events none
+
+
+  .ui-content
+    padding: 0 1em
+
+  .ui-footer
+    background #fff
+    border none
+    text-align center
+    height 200px
+    .controll_tip
+      // font-size 24px
+      text-align center
+      margin 25px 0
+      normal(23px, 20px)
+      color: #7f7f7f
+    .button
+      display: inline-block
+      margin: 0px 57px 15px 47px
+      padding: 5px
+      font-weight: 400
+      cursor pointer
+      &.slower
+        color #3498db
+        padding: 5px 17px
+        img
+          width: 60px
+      &.faster
+        color #e67e22
+        img
+          width: 60px
+
+
+
+.info
+  width 100%
+  text-align center
+
+[data-role=page]
+  height: 100% !important
+  position:relative !important
+
+[data-role=footer]
+  bottom:0
+  position:absolute !important
+  top: auto !important
+  width:100%
+
+
+
+
+
+
+#hello
+  text-align center
+  img
+    fixsize()
+    width 200px
+    height 200px
+    margin-top 60px
+
+  p
+    fixsize()
+    margin-top 50px
+
+  a
+    text-decoration none
+    font-weight 400
+    border 1px solid #3388cc
+    padding 10px
+
+
+
+#poll
+  .fill
+    p
+      color: #fff
+      bold(30px)
+      text-align center
+      position: relative
+      top: 45%
+
+
+.send, .faster, .slower
+  border-width: 0px !important
+  border-style: solid
+  border-radius: 10px
+
+
+
+

@@ -1,0 +1,66 @@
+doctype html
+head
+  title ficus.io
+
+  meta(charset="utf-8")
+
+  meta( name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" )
+  meta( name="apple-mobile-web-app-capable" content="yes" )
+  meta( name="apple-mobile-web-app-status-bar-style" content="black" )
+
+  link(
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.css",
+    media="all", rel="stylesheet"
+  )
+
+  unless opts.hot
+    link( href="[[ app-*.css ]]", media="all", rel="stylesheet" )
+
+  if opts.livereload
+    script( src="/webpack-dev-server.js" )
+
+  script( src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" )
+  script( src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js" )
+  script( src="[[ app-*.js ]]" )
+
+body
+
+  section#hello(data-role="page")
+    .ui-content(role="main")
+      img.ch-logo(src="[[ assets/images/code-hipsters-logo.svg ]]")
+      p
+        a(href="https://vk.com/wall-60684683_477?reply=478") Сообщество Code Hipsters
+
+  section#controll(data-role="page")
+    div.ui-header(data-role="header")
+      h1
+        img(src="[[ assets/images/twitter.png ]]")
+        | #47hours
+
+    .ui-content(role="main")
+      p.label
+        img(src="[[ assets/images/question.png ]]")
+        | Задайте вопрос лектору
+      textarea.question(name="question" placeholder="Почему ..." onkeyup="countChar(this)")
+      .container
+        p.counter
+          span.number 0
+          span /140
+        .send Отправить
+
+    .ui-footer(data-role="footer")
+      p.controll_tip Управляйте ходом презентации
+      .button.slower
+        img(src="[[ assets/images/slower.png ]]")
+        br
+        | непонятно
+      .button.faster
+        img(src="[[ assets/images/faster.png ]]")
+        br
+        | давай дальше
+
+  section#poll(data-role="page")
+    .ui-content(role="main")
+      p.empty Пока нет опросов :(
+      .fill
+        p Ваш голос принят!

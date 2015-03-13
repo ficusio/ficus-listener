@@ -1,3 +1,10 @@
+## Quick development start
+
+```bash
+git clone git@github.com:ficusio/ficus-listener.git listener && cd listener
+./hack
+```
+
 ## Listener protocol
 
 ```js
@@ -24,12 +31,3 @@ Poll: {
   ]
 }
 ```
-
-## Usage
-```bash
-$ npm install
-$ bower install
-$ node server.js
-$ brunch w -s
-```
-
