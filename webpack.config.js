@@ -100,6 +100,10 @@ module.exports = {
     opts.uglify && new webpack.optimize.UglifyJsPlugin()
   ]
   .filter(skipFalsy)
+  ,
+  stylus: {
+    use: [ require('nib')() ]
+  }
 }
 
 /*
