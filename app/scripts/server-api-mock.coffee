@@ -48,35 +48,89 @@ class APIImpl
     id: '1'
     desciption: 'Test poll 1'
     options: [{
-      name: 'Option 1'
+      label: 'Option 1'
       color: '#ff0000'
     }, {
-      name: 'Option 2'
+      label: 'Option 2'
       color: '#0000ff'
     }, {
-      name: 'Option 3'
+      label: 'Option 3'
       color: '#0f000f'
     }, {
-      name: 'Option 4'
+      label: 'Option 4'
       color: '#ff00ff'
     }, {
-      name: 'Option 5'
+      label: 'Option 5'
       color: '#F000ff'
     }, {
-      name: 'Option 6'
+      label: 'Option 6'
+      color: '#00f0ff'
+    },{
+      label: 'Option 1'
+      color: '#ff0000'
+    }, {
+      label: 'Option 2'
+      color: '#0000ff'
+    }, {
+      label: 'Option 3'
+      color: '#0f000f'
+    }, {
+      label: 'Option 4'
+      color: '#ff00ff'
+    }, {
+      label: 'Option 5'
+      color: '#F000ff'
+    }, {
+      label: 'Option 6'
+      color: '#00f0ff'
+    },{
+      label: 'Option 1'
+      color: '#ff0000'
+    }, {
+      label: 'Option 2'
+      color: '#0000ff'
+    }, {
+      label: 'Option 3'
+      color: '#0f000f'
+    }, {
+      label: 'Option 4'
+      color: '#ff00ff'
+    }, {
+      label: 'Option 5'
+      color: '#F000ff'
+    }, {
+      label: 'Option 6'
+      color: '#00f0ff'
+    },{
+      label: 'Option 1'
+      color: '#ff0000'
+    }, {
+      label: 'Option 2'
+      color: '#0000ff'
+    }, {
+      label: 'Option 3'
+      color: '#0f000f'
+    }, {
+      label: 'Option 4'
+      color: '#ff00ff'
+    }, {
+      label: 'Option 5'
+      color: '#F000ff'
+    }, {
+      label: 'Option 6'
       color: '#00f0ff'
     }]
   }, {
     id: '2'
     desciption: 'Test poll 2'
     options: [{
-      name: 'Option 1'
+      label: 'Option 1'
       color: '#ff0000'
     }, {
-      name: 'Option 2'
+      label: 'Option 2'
       color: '#00ff00'
     }, {
-      name: 'Option 3'
+      label: 'Option 3'
       color: '#0000ff'
     }]
   }]

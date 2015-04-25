@@ -46,6 +46,7 @@ setButtons = (poll) ->
       $(".answer").not(".chosen").remove()
       $(".vote-button").text("Ваш голос принят!")
       $(this).unbind("click")
+      $(".answer").unbind("click")
 
 animation = (el) ->
   $(el).css("opacity","0.4")
