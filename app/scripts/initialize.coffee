@@ -48,6 +48,8 @@ setButtons = (poll) ->
     content.append("<div>Ваш голос принят!</div>")
     #Витя пожалуйста пиши свой код здесь
 
+  #showThaksForVote()
+
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
     if chosen.length is 3
