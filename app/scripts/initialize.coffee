@@ -45,20 +45,13 @@ setButtons = (poll) ->
 
   showThaksForVote = ->
     content.empty()
-    content.append("<div>Ваш голос принят!</div>")
-    #Витя пожалуйста пиши свой код здесь
-
-  #showThaksForVote()
+    content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
 
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
     if chosen.length is 3
       api.answer(chosen)
       showThaksForVote()
-      #$(".answer").not(".chosen").remove()
-      #$(".vote-button").text("Ваш голос принят!")
-      #$(this).unbind("click")
-      #$(".answer").unbind("click")
 
 animation = (el) ->
   $(el).css("opacity","0.4")
