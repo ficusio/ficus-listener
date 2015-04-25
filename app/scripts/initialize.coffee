@@ -30,6 +30,7 @@ setButtons = (poll) ->
 
   $(".answer").click ->
     optionIndex = $(this).data("index")
+    $(this).toggleClass("chosen")
     chosen = $(".vote-button").data("chosen")
     searchRes = chosen.indexOf(optionIndex)
     if searchRes > -1
@@ -38,11 +39,13 @@ setButtons = (poll) ->
       chosen.push(optionIndex)
     $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "Осталось #{3-chosen.length} голоса" else "Проголосовать!")
 
-    # $("#poll .fill").css("background-color", $(this).data("color"))
-    # $("#poll .fill").fadeIn(700)
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
-    api.answer(chosen) if chosen.length is 3
+    if chosen.length is 3
+      api.answer(chosen)
+      $(".answer").not(".chosen").remove()
+      $(".vote-button").text("Ваш голос принят!")
+      $(this).unbind("click")
 
 animation = (el) ->
   $(el).css("opacity","0.4")
