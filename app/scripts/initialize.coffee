@@ -24,7 +24,7 @@ setButtons = (poll) ->
   content.append("<div class='vote-header'><div>Проголосуйте</div><div>за участников хакатона</div></div>")
 
   for option, i in poll.options
-    content.append("<div class='answer' data-index='#{i}'>#{option.label}</div>")
+    content.append("<div class='answer' data-index='#{i}'><div>#{option.label}</div><div class='checkbox-wrapper'><img src='images/checkbox.svg'></div></div>")
 
   content.append("<div class='vote-button'>Осталось 3 голоса</div>")
 

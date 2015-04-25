@@ -44,81 +44,76 @@ class APIImpl
   randomTimeout = (min = 1000, max = 15000) ->
     Math.floor min + (max - min) * Math.random()
 
+
   mockPolls = [{
     id: '1'
     desciption: 'Test poll 1'
     options: [{
-      label: 'Option 1'
+      label: 'EasyTarget'
       color: '#ff0000'
     }, {
-      label: 'Option 2'
+      label: 'IndoorNav'
       color: '#0000ff'
     }, {
-      label: 'Option 3'
+      label: 'FabModules'
       color: '#0f000f'
     }, {
-      label: 'Option 4'
+      llabel: 'Let\'s Go'
       color: '#ff00ff'
     }, {
-      label: 'Option 5'
+      label: 'Рикарда'
       color: '#F000ff'
     }, {
-      label: 'Option 6'
+      label: 'GoWalk'
       color: '#00f0ff'
     },{
-      label: 'Option 1'
+      label: 'Бесогон'
       color: '#ff0000'
     }, {
-      label: 'Option 2'
+      label: 'Русский для иностранцев'
       color: '#0000ff'
     }, {
-      label: 'Option 3'
+      label: 'Кардиограф'
       color: '#0f000f'
     }, {
-      label: 'Option 4'
+      label: 'Sass Scada Monitor'
       color: '#ff00ff'
     }, {
-      label: 'Option 5'
+      label: 'Nesg.ru'
       color: '#F000ff'
     }, {
-      label: 'Option 6'
+      label: 'Мегабикон'
       color: '#00f0ff'
     },{
-      label: 'Option 1'
+      label: 'CityCode'
       color: '#ff0000'
     }, {
-      label: 'Option 2'
+      label: 'Novisse'
       color: '#0000ff'
     }, {
-      label: 'Option 3'
+      label: 'Космическая игра'
       color: '#0f000f'
     }, {
-      label: 'Option 4'
+      label: 'Твори Добро'
       color: '#ff00ff'
     }, {
-      label: 'Option 5'
+      label: 'ScoolLab'
       color: '#F000ff'
     }, {
-      label: 'Option 6'
+      label: 'World Street Wars'
       color: '#00f0ff'
     },{
-      label: 'Option 1'
+      label: 'Runny Jump'
       color: '#ff0000'
     }, {
-      label: 'Option 2'
+      label: 'ТерраЛорды'
       color: '#0000ff'
     }, {
-      label: 'Option 3'
+      label: 'Игра Марата'
       color: '#0f000f'
     }, {
-      label: 'Option 4'
+      label: 'Cyber League'
       color: '#ff00ff'
-    }, {
-      label: 'Option 5'
-      color: '#F000ff'
-    }, {
-      label: 'Option 6'
-      color: '#00f0ff'
     }]
   }, {
     id: '2'

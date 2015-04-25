@@ -128,6 +128,7 @@ section[data-role=page]
       // color #26B5ED
       // border-radius 10px
       // text-align center
+      position relative
       padding 10px 0 14px 17px
       // margin 10px 0
       cursor pointer
@@ -135,10 +136,18 @@ section[data-role=page]
       height 20px
       width 100%
       border-bottom 1px solid #eaeaea
+      
+      &.chosen
+        color #ACACAC
+        .checkbox-wrapper
+          visibility visible
+      
+      .checkbox-wrapper
+        position absolute
+        right 30px
+        top 7px
+        visibility hidden
 
-    .answer.chosen
-      color #fff
-      background-color #26B5ED
 
     .vote-header
       border-bottom 1px solid #eaeaea
@@ -153,11 +162,11 @@ section[data-role=page]
       color #fff
       background-color #26B5ED
       text-align center
-      padding 20px 0
+      // padding 20px 0
       position fixed
       bottom 0
       width 100%
-      height 30px
+      height 60px
 
     .thank-vote
       color #fff
