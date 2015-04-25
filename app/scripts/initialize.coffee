@@ -21,6 +21,8 @@ setButtons = (poll) ->
 
   content = $("#poll .ui-content")
 
+  content.append("<div class='vote-header'><div>Проголосуйте</div><div>за участников хакатона</div></div>")
+
   for option, i in poll.options
     content.append("<div class='answer' data-index='#{i}'>#{option.label}</div>")
 
@@ -41,14 +43,20 @@ setButtons = (poll) ->
     onlyVote = votesLeft is 1
     $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}" else "Проголосовать!")
 
+  showThaksForVote = ->
+    content.empty()
+    content.append("<div>Ваш голос принят!</div>")
+    #Витя пожалуйста пиши свой код здесь
+
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
     if chosen.length is 3
       api.answer(chosen)
-      $(".answer").not(".chosen").remove()
-      $(".vote-button").text("Ваш голос принят!")
-      $(this).unbind("click")
-      $(".answer").unbind("click")
+      showThaksForVote()
+      #$(".answer").not(".chosen").remove()
+      #$(".vote-button").text("Ваш голос принят!")
+      #$(this).unbind("click")
+      #$(".answer").unbind("click")
 
 animation = (el) ->
   $(el).css("opacity","0.4")

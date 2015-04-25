@@ -124,18 +124,31 @@ section[data-role=page]
       margin: 1px
 
     .answer
-      border 1px solid #26B5ED
-      color #26B5ED
-      border-radius 10px
-      text-align center
-      padding 20px 0
-      margin 10px 0
+      // border 1px solid #26B5ED
+      // color #26B5ED
+      // border-radius 10px
+      // text-align center
+      padding 10px 0 14px 17px
+      // margin 10px 0
       cursor pointer
+      background-color white
+      height 20px
+      width 100%
+      border-bottom 1px solid #eaeaea
 
     .answer.chosen
       color #fff
       background-color #26B5ED
 
+    .vote-header
+      border-bottom 1px solid #eaeaea
+      background-color white
+      height 55px
+      width 100%
+      div
+        width 100$
+        text-align center
+      
     .vote-button
       color #fff
       background-color #26B5ED
@@ -144,7 +157,7 @@ section[data-role=page]
       position fixed
       bottom 0
       width 100%
-      margin-left -18px
+      height 30px
 
     .fill
       background #000
@@ -230,6 +243,8 @@ section[data-role=page]
 
 
 #poll
+  div.ui-content
+    padding 0
   .fill
     p
       color: #fff
