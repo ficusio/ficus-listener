@@ -52,7 +52,7 @@ animation = (el) ->
   $(el).animate {"opacity": "1"}, 1000
 
 
-API = require './server-api'
+API = require './server-api-mock'
 api = new API '/api'
 # api = new API 'http://codehipsters.com/api'
 

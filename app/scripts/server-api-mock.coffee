@@ -92,11 +92,11 @@ class APIImpl
 
 
   initialize: ->
-    if Math.random() < 0.5
-      @callback 'onInitialState',
-        state: API.PresentationState.NOT_STARTED
-      later 1000, => @start()
-    else
+    # if Math.random() < 0.5
+    #   @callback 'onInitialState',
+    #     state: API.PresentationState.NOT_STARTED
+    #   later 1000, => @start()
+    # else
       @pollIndex = 0
       @callback 'onInitialState',
         state: API.PresentationState.ACTIVE
@@ -107,7 +107,7 @@ class APIImpl
 
   start: ->
     @callback 'onStateChanged', API.PresentationState.ACTIVE
-    @scheduleNext()
+    # @scheduleNext()
 
 
   scheduleNext: ->
