@@ -19,19 +19,30 @@ setButtons = (poll) ->
   count = poll.options.length
   $("p.empty").hide()
 
+  content = $("#poll .ui-content")
+
   for option, i in poll.options
-    $("#poll .ui-content").append("<div class='answer' data-index='#{i}' data-color='#{option.color}' style='color: #{option.color}; border-color: #{option.color}; '>#{option.label}</div>")
+    content.append("<div class='answer' data-index='#{i}'>#{option.label}</div>")
 
-  screenH = $("#poll").height()
-  padding = ((screenH - (38*count) )- 36)/count
+  content.append("<div class='vote-button'>Осталось 3 голоса</div>")
 
-  $(".answer").css(
-    "padding-top": "#{padding/2}px"
-    "padding-bottom": "#{padding/2}px"
-  ).click ->
-    api.answer($(this).data("index"))
-    $("#poll .fill").css("background-color", $(this).data("color"))
-    $("#poll .fill").fadeIn(700)
+  $(".vote-button").data("chosen", [])
+
+  $(".answer").click ->
+    optionIndex = $(this).data("index")
+    chosen = $(".vote-button").data("chosen")
+    searchRes = chosen.indexOf(optionIndex)
+    if searchRes > -1
+      chosen.splice(searchRes,1)
+    else
+      chosen.push(optionIndex)
+    $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "Осталось #{3-chosen.length} голоса" else "Проголосовать!")
+
+    # $("#poll .fill").css("background-color", $(this).data("color"))
+    # $("#poll .fill").fadeIn(700)
+  $(".vote-button").click ->
+    chosen = $(this).data("chosen")
+    api.answer(chosen) if chosen.length is 3
 
 animation = (el) ->
   $(el).css("opacity","0.4")
