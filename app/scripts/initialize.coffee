@@ -20,7 +20,7 @@ setButtons = (poll) ->
   $("p.empty").hide()
 
   content = $("#poll .ui-content")
-
+  content.empty()
   content.append("<div class='vote-header'><div>Проголосуйте</div><div>за участников хакатона</div></div>")
 
   for option, i in poll.options
