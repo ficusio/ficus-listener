@@ -26,7 +26,7 @@ setButtons = (poll) ->
   for option, i in poll.options
     content.append("<div class='answer' data-index='#{i}'><div>#{option.label}</div><div class='checkbox-wrapper'><img src='images/checkbox.svg'></div></div>")
 
-  content.append("<div class='vote-button'>Осталось 3 голоса</div>")
+  content.append("<div class='vote-button'><div>Осталось 3 голоса</div></div>")
 
   $(".vote-button").data("chosen", [])
 
@@ -44,11 +44,15 @@ setButtons = (poll) ->
       $(this).toggleClass("chosen")
     votesLeft = 3-chosen.length
     onlyVote = votesLeft is 1
-    $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}" else "Проголосовать!")
+    if chosen.length < 3
+      $(".vote-button > div").data("chosen", chosen).text("#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}")
+    else
+      $(".vote-button > div").empty()
+      $(".vote-button > div").append('<span class="send-vote">ОТПРАВИТЬ ГОЛОСА</span>')
+    
 
   showThaksForVote = ->
-    content.empty()
-    content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
+    content.empty().append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
 
   $(".vote-button").click ->
     chosen = $(this).data("chosen")

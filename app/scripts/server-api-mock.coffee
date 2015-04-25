@@ -58,7 +58,7 @@ class APIImpl
       label: 'FabModules'
       color: '#0f000f'
     }, {
-      llabel: 'Let\'s Go'
+      label: 'Let\'s Go'
       color: '#ff00ff'
     }, {
       label: 'Рикарда'
