@@ -32,13 +32,16 @@ setButtons = (poll) ->
 
   $(".answer").click ->
     optionIndex = $(this).data("index")
-    $(this).toggleClass("chosen")
     chosen = $(".vote-button").data("chosen")
     searchRes = chosen.indexOf(optionIndex)
     if searchRes > -1
       chosen.splice(searchRes,1)
+      $(this).toggleClass("chosen")
     else
+      if chosen.length >=3
+        return
       chosen.push(optionIndex)
+      $(this).toggleClass("chosen")
     votesLeft = 3-chosen.length
     onlyVote = votesLeft is 1
     $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}" else "Проголосовать!")
