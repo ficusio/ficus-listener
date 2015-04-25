@@ -37,7 +37,9 @@ setButtons = (poll) ->
       chosen.splice(searchRes,1)
     else
       chosen.push(optionIndex)
-    $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "Осталось #{3-chosen.length} голоса" else "Проголосовать!")
+    votesLeft = 3-chosen.length
+    onlyVote = votesLeft is 1
+    $(".vote-button").data("chosen", chosen).text(if chosen.length < 3 then "#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}" else "Проголосовать!")
 
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
