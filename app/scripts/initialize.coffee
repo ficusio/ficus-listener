@@ -29,11 +29,11 @@ setButtons = (poll) ->
   for option, i in poll.options
     content.append("<div class='answer' data-index='#{i}'><div>#{option.label}</div><div class='checkbox-wrapper'><img src='images/checkbox.svg'></div></div>")
 
-  content.append("<div class='vote-button'><div>Осталось 3 голоса</div></div>")
+  $('body').append("<div class='vote-button'><div>Осталось 3 голоса</div></div>")
 
   $(".vote-button").data("chosen", [])
 
-  $(".answer").click ->
+  $(".answer").on "tap", (e) ->
     optionIndex = $(this).data("index")
     chosen = $(".vote-button").data("chosen")
     searchRes = chosen.indexOf(optionIndex)
@@ -48,13 +48,14 @@ setButtons = (poll) ->
     votesLeft = 3-chosen.length
     onlyVote = votesLeft is 1
     if chosen.length < 3
-      $(".vote-button > div").data("chosen", chosen).text("#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}")
+      $("body > .vote-button > div").data("chosen", chosen).text("#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}")
     else
-      $(".vote-button > div").empty()
-      $(".vote-button > div").append('<span class="send-vote">ОТПРАВИТЬ ГОЛОСА</span>')
+      $("body > .vote-button > div").empty()
+      $("body > .vote-button > div").append('<span class="send-vote">ОТПРАВИТЬ ГОЛОСА</span>')
     
 
   showThaksForVote = ->
+    $("body > .vote-button > div").empty()
     content.empty()
 
     $("#poll").css("overflow", "hidden")
