@@ -51,12 +51,18 @@ setButtons = (poll) ->
     if chosen.length < 3
       $("body > .vote-button > div").data("chosen", chosen).text("#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}")
       $("body > .vote-button").animate({
-        height: "80px", 'line-height':'80px'
-      })
+        height: "60px", 'line-height':'60px'
+      }, 200)
+      $('#poll > .ui-content').animate({
+        "margin-bottom": "60px"
+      }, 200)
     else                
       $("body > .vote-button").animate({
         height: "160px", 'line-height':'160px'
-      })
+      }, 200)
+      $('#poll > .ui-content').animate({
+        "margin-bottom": "160px"
+      }, 200)
 
       $("body > .vote-button > div").empty()
       $("body > .vote-button > div").append('<span class="send-vote">ОТПРАВИТЬ ГОЛОСА</span>')
@@ -74,6 +80,9 @@ setButtons = (poll) ->
     })
 
     $('#poll').css("background-color", "#26b5ed")
+    $('#poll > .ui-content').css({
+      "margin-bottom": "0"
+    })
 
     draw = () -> content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
     setTimeout draw, 20
@@ -90,8 +99,8 @@ animation = (el) ->
   $(el).animate {"opacity": "1"}, 1000
 
 
-API = require './server-api-mock'
-api = new API '/api'
+API = require './server-api'
+api = new API 'http://app.ficus.io/api'
 # api = new API 'http://codehipsters.com/api'
 
 api.onInitialState = (initialState) ->
