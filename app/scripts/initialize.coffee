@@ -32,6 +32,7 @@ setButtons = (poll) ->
   $('body').append("<div class='vote-button'><div>Осталось 3 голоса</div></div>")
 
   $(".vote-button").data("chosen", [])
+  $('#poll').removeClass('showing-thanks')
 
   $(".answer").click ->
     optionIndex = $(this).data("index")
@@ -57,9 +58,16 @@ setButtons = (poll) ->
   showThaksForVote = ->
     $("body > .vote-button > div").empty()
     content.empty()
+    $('#poll').addClass('showing-thanks')
 
-    $("body").css("height", "100%")
-    $("body").css("overflow", "hidden")
+    $("body").css({
+      "height": "100%",
+      "overflow": "hidden",
+      "background-color": "#26b5ed"
+    })
+
+    $('#poll').css("background-color", "#26b5ed")
+
     draw = () -> content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
     setTimeout draw, 20
     
@@ -94,8 +102,10 @@ api.onStateChanged = (state) ->
   console.log 'presentation state changed: ' + state
   $("body > .vote-button").remove()
   if state is "active"
+    $("body").css("background-color", "#26b5ed")
     $.mobile.navigate("#controll")
   if state is "ended"
+    $("body").css("background-color", "#ffffff")
     $.mobile.navigate("#hello")
 
 api.onPollStarted = (poll) ->

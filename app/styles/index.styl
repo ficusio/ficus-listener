@@ -38,6 +38,10 @@ fixsize()
   margin-right: auto !important
 
 
+html
+  background #fff
+
+
 body
   normal()
   background #fff
@@ -292,7 +296,11 @@ section[data-role=page]
       position: relative
       top: 45%
   .ui-content
-    margin-bottom 60px
+    margin-bottom 80px
+  background-color: #fff
+
+#poll.showing-thanks
+  background-color: #26b5ed
 
 
 .send, .faster, .slower
@@ -307,13 +315,12 @@ section[data-role=page]
   text-align center
   font-weight bolder
   font-size 18px
-  // padding 20px 0
   position fixed
   bottom 0
   width 100%
-  height 60px
-  div
-    padding 17px 0
+  height 80px
+  line-height 80px
+  vertical-align middle
 
 .send-vote
   font-size 15px
