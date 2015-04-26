@@ -50,7 +50,14 @@ setButtons = (poll) ->
     onlyVote = votesLeft is 1
     if chosen.length < 3
       $("body > .vote-button > div").data("chosen", chosen).text("#{if onlyVote then 'Остался' else 'Осталось'} #{3-chosen.length} голос#{if onlyVote then '' else 'а'}")
-    else
+      $("body > .vote-button").animate({
+        height: "80px", 'line-height':'80px'
+      })
+    else                
+      $("body > .vote-button").animate({
+        height: "160px", 'line-height':'160px'
+      })
+
       $("body > .vote-button > div").empty()
       $("body > .vote-button > div").append('<span class="send-vote">ОТПРАВИТЬ ГОЛОСА</span>')
     
