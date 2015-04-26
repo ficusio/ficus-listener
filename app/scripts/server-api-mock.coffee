@@ -150,7 +150,7 @@ class APIImpl
       @callback 'onInitialState',
         state: API.PresentationState.ACTIVE
         poll: mockPolls[ @pollIndex ]
-      # @schedulePollEnd()
+      @schedulePollEnd()
 
 
 

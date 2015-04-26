@@ -33,7 +33,7 @@ setButtons = (poll) ->
 
   $(".vote-button").data("chosen", [])
 
-  $(".answer").on "tap", (e) ->
+  $(".answer").click ->
     optionIndex = $(this).data("index")
     chosen = $(".vote-button").data("chosen")
     searchRes = chosen.indexOf(optionIndex)
@@ -58,12 +58,13 @@ setButtons = (poll) ->
     $("body > .vote-button > div").empty()
     content.empty()
 
-    $("#poll").css("overflow", "hidden")
+    $("body").css("height", "100%")
+    $("body").css("overflow", "hidden")
     draw = () -> content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
     setTimeout draw, 20
     
 
-  $(".vote-button").click ->
+  $(".vote-button").on "tap", (e) ->
     chosen = $(this).data("chosen")
     if chosen.length is 3
       api.answer(chosen)
@@ -107,6 +108,8 @@ api.onPollStarted = (poll) ->
 
 api.onPollEnded = ->
   console.log 'poll ended'
+  $("body").css("height", "auto")
+  $("body").css("overflow", "auto")
   $("body > .vote-button").remove()
   $.mobile.navigate("#controll")
 
