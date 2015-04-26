@@ -19,6 +19,9 @@ setButtons = (poll) ->
   count = poll.options.length
   $("p.empty").hide()
 
+
+  $("#poll").css("overflow", "auto")
+
   content = $("#poll .ui-content")
   content.empty()
   content.append("<div class='vote-header'><div>Проголосуйте</div><div>за участников хакатона</div></div>")
@@ -52,7 +55,12 @@ setButtons = (poll) ->
     
 
   showThaksForVote = ->
-    content.empty().append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
+    content.empty()
+
+    $("#poll").css("overflow", "hidden")
+    draw = () -> content.append("<div class='thank-vote'><div class='happy'><img src='images/happy.svg' alt='Спасибо!'></img></div><div class='votes-count'>Ваши голоса учтены!</div><div class='powered'><span class='power'>powered by</span><img src='images/ficus-logo.svg' alt='Лого'></img></div></div>")
+    setTimeout draw, 20
+    
 
   $(".vote-button").click ->
     chosen = $(this).data("chosen")
