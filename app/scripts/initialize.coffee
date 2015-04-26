@@ -92,6 +92,7 @@ api.onInitialState = (initialState) ->
 
 api.onStateChanged = (state) ->
   console.log 'presentation state changed: ' + state
+  $("body > .vote-button").remove()
   if state is "active"
     $.mobile.navigate("#controll")
   if state is "ended"
