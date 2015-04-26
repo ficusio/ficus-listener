@@ -107,6 +107,7 @@ api.onPollStarted = (poll) ->
 
 api.onPollEnded = ->
   console.log 'poll ended'
+  $("body > .vote-button").remove()
   $.mobile.navigate("#controll")
 
 

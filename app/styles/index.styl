@@ -123,15 +123,12 @@ section[data-role=page]
       padding 5px 10px
       margin: 1px
 
+#poll
+  background #fff
+  .ui-content
     .answer
-      // border 1px solid #26B5ED
-      // color #26B5ED
-      // border-radius 10px
-      // text-align center
       position relative
-
       padding 16px 0 21px 17px
-      // margin 10px 0
       cursor pointer
       background-color white
       height 20px
@@ -169,7 +166,7 @@ section[data-role=page]
         padding-top 5px
         width 100%
         text-align center
-      
+        
 
     .thank-vote
       color #fff
@@ -184,6 +181,7 @@ section[data-role=page]
       .votes-count
         padding-top 15px
       .powered
+        z-index 1
         position fixed
         bottom 0
         width 100%
@@ -198,22 +196,18 @@ section[data-role=page]
         -webkit-box-align center
         -webkit-align-items center
         -ms-flex-align center
-        align-items center
+        align-items center      
 
-
-
-      
-
-    .fill
-      background #000
-      display none
-      position absolute
-      top 0
-      left 0
-      height 100%
-      width 100%
-      z-index 500
-      // pointer-events none
+      .fill
+        background #000
+        display none
+        position absolute
+        top 0
+        left 0
+        height 100%
+        width 100%
+        z-index 500
+        // pointer-events none
 
 
   .ui-content
@@ -288,7 +282,6 @@ section[data-role=page]
 
 
 #poll
-  -webkit-overflow-scrolling touch
   div.ui-content
     padding 0
   .fill
@@ -322,7 +315,6 @@ section[data-role=page]
   div
     padding 17px 0
 
-
 .send-vote
   font-size 15px
   border 1px solid #fff
@@ -332,6 +324,3 @@ section[data-role=page]
   cursor pointer
   font-weight bolder
   letter-spacing .5px
-  
-body
-  -webkit-overflow-scrolling touch
